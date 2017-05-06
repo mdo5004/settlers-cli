@@ -4,34 +4,6 @@ module SettlersOfCatan
   # Your code goes here...
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #                       0___0___1
 #                       /       \
 #                      1         2
@@ -57,9 +29,9 @@ end
 # \           /       \           /       \           /
 # 62        55        56        58        59        61
 #   42_60___/43   16    44_63___/45   17    46_66___/47
-#         " "*11 + @edge[68].show + " "*11 + @edge[64].show + " "*7 + @edge[65].show + " "*11 + @edge[67].show
-#          " "*11 + @edge[68].show + " "*8 + @edge[64].show + " "*8 + @edge[65].show + " "*8 + @edge[67].show    
-#             @edge[68].show + @facet[48].show + @edge[69].show + @edge[64].show + @facet[49] + " "*3 + @tile[18].show + " "*4 + @edge[65].show + @facet[50] + @edge[72].show + @edge[67].show + @facet[51]
+#           \           /       \           /       
+#           68        64        65        67    
+#             48_69___/49   18    50_72___/51
 #                     \           /
 #                     71        73
 #                       52_75___/53
