@@ -44,25 +44,13 @@ class SettlersOfCatan::GameBoard
         puts " "*5 + @edge[10].show + @facet[12].show + " "*3 + @tile[3].show+ " "*4 + @edge[11].show + @facet[13].show + @edge[18].show+ @edge[13].show+ @facet[14].show + " "*3 + @tile[4].show+ " "*4+ @edge[14].show + @facet[15].show + @edge[21].show + @edge[16].show + @facet[16].show + " "*3 + @tile[5].show + " "*4 + @edge[17].show + @facet[17].show
         puts " "*5 + @edge[35].show + " "*11 + @edge[19].show + " "*7 + @edge[20].show + " "*11 + @edge[22].show+ " "*7 + @edge[23].show + " "*11 + @edge[34].show
         puts " "*6 + @edge[35].show + " "*9 + @edge[19].show + " "*9 + @edge[20].show + " "*9 + @edge[22].show+ " "*9 + @edge[23].show + " "*9 + @edge[34].show
-        puts "       \\#{@facet[18].show}_____/#{@facet[19].show}   #{@tile[6].show}    \\#{@facet[20].show}_____/#{@facet[21].show}   #{@tile[7].show}    \\#{@facet[22].show}_____/#{@facet[23].show} "
-        puts "       /       \\           /       \\           /       \\   "
-        puts "      /         \\         /         \\         /         \\   "
-        puts "     /#{@facet[24].show}   #{@tile[8].show}    \\#{@facet[25].show}_____/#{@facet[26].show}   #{@tile[9].show}    \\#{@facet[27].show}_____/#{@facet[28].show}   #{@tile[10].show}    \\#{@facet[29].show} "
-        puts "     \\           /       \\           /       \\           /   "
-        puts "      \\         /         \\         /         \\         /   "
-        puts "       \\#{@facet[30].show}_____/#{@facet[31].show}   #{@tile[11].show}    \\#{@facet[32].show}_____/#{@facet[33].show}   #{@tile[12].show}    \\#{@facet[34].show}_____/#{@facet[35].show} "
-        puts "       /       \\           /       \\           /       \\   "
-        puts "      /         \\         /         \\         /         \\   "
-        puts "     /#{@facet[36].show}   #{@tile[13].show}    \\#{@facet[37].show}_____/#{@facet[38].show}   #{@tile[14].show}    \\#{@facet[39].show}_____/#{@facet[40].show}   #{@tile[15].show}    \\#{@facet[41].show} "
-        puts "     \\           /       \\           /       \\           /   "
-        puts "      \\         /         \\         /         \\         /   "
-        puts "       \\#{@facet[42].show}_____/#{@facet[43].show}   #{@tile[16].show}    \\#{@facet[44].show}_____/#{@facet[45].show}   #{@tile[17].show}    \\#{@facet[46].show}_____/#{@facet[47].show} "
-        puts "               \\           /       \\           /          "
-        puts "                \\         /         \\         /       "
-        puts "                 \\#{@facet[48].show}_____/#{@facet[49].show}   #{@tile[18].show}    \\#{@facet[50].show}_____/#{@facet[51].show} "
-        puts "                         \\           /   "
-        puts "                          \\         /   "
-        puts "                           \\#{@facet[52].show}_____/#{@facet[53].show} " 
+        puts " "*7 + @edge[35].show + @facet[18].show + @edge[24].show + @edge[19].show + @facet[19].show + " "*3 + @tile[6].show + " "*4 + @edge[20].show + @facet[20].show + @edge[27].show + @edge[22].show + @facet[21].show + " "*3 + @tile[7].show + " "*4 + @edge[23].show + @facet[22].show + @edge[30].show + @edge[34].show + @facet[23].show
+        puts " "*7 + @edge[25].show + " "*7 + @edge[26].show+ " "*11 + @edge[28].show+ " "*7 + @edge[29].show + " "*11 + @edge[31].show + " "*7 + @edge[32].show
+        puts " "*6 + @edge[25].show + " "*9 + @edge[26].show+ " "*9 + @edge[28].show+ " "*9 + @edge[29].show + " "*9 + @edge[31].show + " "*9 + @edge[32].show
+        puts " "*5 + @edge[25].show + @facet[24].show + " "*3 + @tile[8].show+ " "*4 + @edge[26].show + @facet[25].show + @edge[36].show+ @edge[28].show+ @facet[26].show + " "*3 + @tile[9].show+ " "*4+ @edge[29].show + @facet[27].show + @edge[39].show + @edge[31].show + @facet[28].show + " "*3 + @tile[10].show + " "*4 + @edge[32].show + @facet[29].show
+        puts " "*5 + @edge[53].show + " "*11 + @edge[37].show + " "*7 + @edge[38].show + " "*11 + @edge[40].show+ " "*7 + @edge[41].show + " "*11 + @edge[52].show
+        puts " "*6 + @edge[53].show + " "*9 + @edge[37].show + " "*9 + @edge[38].show + " "*9 + @edge[40].show+ " "*9 + @edge[41].show + " "*9 + @edge[52].show
+        puts " "*7 + @edge[53].show + @facet[18].show + @edge[24].show + @edge[37].show + @facet[19].show + " "*3 + @tile[11].show + " "*4 + @edge[38].show + @facet[20].show + @edge[27].show + @edge[40].show + @facet[21].show + " "*3 + @tile[12].show + " "*4 + @edge[41].show + @facet[22].show + @edge[30].show + @edge[52].show + @facet[23].show
         puts "\n \n \n"
         puts "Legend: [roygbw] = Settlement, [ROYGBW] = City"
     end
