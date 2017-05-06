@@ -1,0 +1,3 @@
+class SettlersOfCatan::City
+    
+end
