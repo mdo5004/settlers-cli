@@ -1,0 +1,3 @@
+class SettlersOfCatan::Player
+    
+end
