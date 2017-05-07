@@ -7,7 +7,6 @@ class SettlersOfCatan::Edge
         @direction = direction
         @color = :default
 
-        @@colors = {:red => "\e[31m",:green => "\e[32m",:yellow => "\e[33m",:blue => "\e[34m",:magenta => "\e[35m",:cyan => "\e[36m",:default => "\e[39m", :gray => "\e[90m", :light_green => "\e[92m", :default => "\e[39m"}
     end
 
     def show
@@ -19,14 +18,15 @@ class SettlersOfCatan::Edge
         when "horiz"
             display = "_____"
         end
-        return "#{occupier_color}#{display}#{@@colors[:default]}"
+        display = Color.colorize_by_color(display,occupier_color)
+        return display
     end
 
     def occupier_color
         if @occupier
-            c = @@colors[@occupier.color] 
+            c = Color.color_of(@occupier) 
         else
-            c = @@colors[:default]
+            c = Color.default_color
         end
         return c
     end

@@ -6,14 +6,11 @@ class SettlersOfCatan::Tile
         @number = number
         @resource = resource
         
-        @@colors = {:red => "\e[31m",:green => "\e[32m",:yellow => "\e[33m",:blue => "\e[34m",:magenta => "\e[35m",:cyan => "\e[36m",:default => "\e[39m", :gray => "\e[90m", :light_green => "\e[92m", :default => "\e[39m"}
-
-        @@resource_colors = {:ore => "gray", :brick => "red", :wheat => "yellow", :sheep => "light_green", :wood => "green", :dessert =>"magenta"}
     end
 
     def show
         if occupied_by_robber
-            
+        display = "RB"    
         else
             if @number < 10
                 if @number == 7
@@ -24,15 +21,17 @@ class SettlersOfCatan::Tile
             else
                 display = "#{@number}"
             end
+        display = Color.colorize_by_resource(display,@resource)
         end
-        return "#{display_color}#{display}#{@@colors[:default]}"
+        
+        return display
     end
 
     def display_color
         if @resource
-            c = @@colors[@@resource_colors[@resource.to_sym].to_sym] 
+            c = Color.resource_color(@resource)
         else
-            c = @@colors[:default]
+            c = Color.colors[:default]
         end
         return c
     end
