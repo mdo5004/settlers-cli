@@ -18,5 +18,10 @@ class SettlersOfCatan::Player
             puts "Cannot place settlement"
         end
     end
-            
+    def place_road(edge_number)
+    end
+    def place_city(facet_number)
+    end
+    def move_robber(to_location)
+    end        
 end
