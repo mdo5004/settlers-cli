@@ -1,5 +1,6 @@
 class SettlersOfCatan::Player
     attr_accessor :category, :color, :board
+    attr_reader :settlements, :cities, :roads
     def initialize(category,color)
         @category = category
         @color = color
@@ -23,10 +24,12 @@ class SettlersOfCatan::Player
         settlement = @settlements.find {|s| !s.is_on_the_board}
         
         if settlement
-            @board.facet[facet_number-1].setOccupier(settlement)
+            did_place_settlement = @board.facet[facet_number-1].setOccupier(settlement)
         else
-            puts "Cannot place settlement"
+            puts "You don't have any more settlements"
+            did_place_settlement = false
         end
+        return did_place_settlement
     end
     def place_road(edge_number)
     end
