@@ -52,6 +52,7 @@ class SettlersOfCatan::CLI
 
     def place_first_pieces(player)
         if player.category == "human"
+            @board.display_current_board
             facet_number = ask("Where would you like to place your first settlement?")
             player.place_settlement(facet_number)
         else
