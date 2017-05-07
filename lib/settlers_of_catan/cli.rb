@@ -18,16 +18,17 @@ class SettlersOfCatan::CLI
     private
     def first_turn
         @players.each do |player|
-            player.place_first_pieces
+            place_first_pieces(player)
         end
     end
     def second_turn
         @players.reverse.each do |player|
-            player.place_first_pieces
+            place_first_pieces(player)
         end
     end
     def game
-        puts "Begin the game"
+        
+            puts "Begin the game"
     end
     def setup
         @board = SettlersOfCatan::GameBoard.new
@@ -41,11 +42,23 @@ class SettlersOfCatan::CLI
         @players = []
         colors.each do |c|
             cat = c == color ? "human" : "computer"
-            @players << SettlersOfCatan::Player.new(cat,c)
+            new_player = SettlersOfCatan::Player.new(cat,c)
+            new_player.board = @board
+            @players << new_player
         end
         @players.shuffle!
-        
+
     end
+
+    def place_first_pieces(player)
+        if player.category == "human"
+            facet_number = ask("Where would you like to place your first settlement?")
+            player.place_settlement(facet_number)
+        else
+        end
+    end
+
+
     def ask(phrase, &condition)
         puts phrase
         begin

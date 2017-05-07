@@ -1,12 +1,14 @@
 class SettlersOfCatan::Player
-    attr_accessor :category, :color
+    attr_accessor :category, :color, :board
     def initialize(category,color)
         @category = category
         @color = color
+        
+        @settlements = [SettlersOfCatan::Settlement.new(self,@color)] * 4
     end
 
-    def place_first_pieces
-        puts "#{@color} player placing first piece"
+    def place_settlement(facet_number)
+        
     end
 
 end
