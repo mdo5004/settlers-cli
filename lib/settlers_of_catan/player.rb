@@ -3,15 +3,25 @@ class SettlersOfCatan::Player
     def initialize(category,color)
         @category = category
         @color = color
-        
-        @settlements = [SettlersOfCatan::Settlement.new(self,@color)] * 4
-        @cities = [SettlersOfCatan::City.new(self,@color)] * 4
-        @roads = [SettlersOfCatan::Road.new(self,@color)] * 15
-        
+
+        @settlements = []
+        4.times do 
+            @settlements << SettlersOfCatan::Settlement.new(self,@color)
+        end
+        @cities = []
+        4.times do 
+            @cities << SettlersOfCatan::City.new(self,@color)
+        end
+        @roads = []
+        15.times do 
+            @roads << SettlersOfCatan::Road.new(self,@color)
+        end
+
     end
 
     def place_settlement(facet_number)
         settlement = @settlements.find {|s| !s.is_on_the_board}
+        
         if settlement
             @board.facet[facet_number-1].setOccupier(settlement)
         else
