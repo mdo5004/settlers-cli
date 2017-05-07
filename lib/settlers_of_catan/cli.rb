@@ -54,7 +54,13 @@ class SettlersOfCatan::CLI
         if player.category == "human"
             @board.display_current_board
             facet_number = ask("Where would you like to place your first settlement?")
-            player.place_settlement(facet_number.to_i)
+            did_place = player.place_settlement(facet_number.to_i)
+            if !did_place
+                binding.pry
+                place_first_pieces(player)
+            end
+            edge_number = ask("Where would you like to place your first road?")
+            did_place = player.place_road(edge_number)
         else
             # TODO -- COMPUTER PLAYER PICKS A FACET
         end

@@ -32,6 +32,7 @@ class SettlersOfCatan::Player
         return did_place_settlement
     end
     def place_road(edge_number)
+        puts "You placed a road"
     end
     def place_city(facet_number)
     end
