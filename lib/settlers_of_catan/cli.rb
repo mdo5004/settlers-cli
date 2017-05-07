@@ -56,6 +56,7 @@ class SettlersOfCatan::CLI
             facet_number = ask("Where would you like to place your first settlement?")
             player.place_settlement(facet_number)
         else
+            # TODO -- COMPUTER PLAYER PICKS A FACET
         end
     end
 
