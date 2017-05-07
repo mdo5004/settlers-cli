@@ -30,7 +30,7 @@ class SettlersOfCatan::GameBoard
 
 
     end
-    def current_board
+    def display_current_board
         puts "\e[H\e[2J"
         puts " "*28 + @facet[0].show + @edge[0].show + @facet[1].show
         puts " "*27 + @edge[1].show + " "*7 + @edge[2].show
@@ -63,8 +63,5 @@ class SettlersOfCatan::GameBoard
         puts " "*25 + @edge[71].show + " "*11 + @edge[73].show
         puts " "*26 + @edge[71].show + " "*9 + @edge[73].show
         puts " "*27 + @edge[71].show + @facet[52].show + @edge[75].show + @edge[73].show + @facet[53].show
-        
-        puts "\n \n \n"
-        puts "Legend: [roygbw] = Settlement, [ROYGBW] = City"
     end
 end

@@ -10,11 +10,25 @@ class SettlersOfCatan::CLI
         puts "\n \n \n"
 
         setup
-
-        @board.current_board
+        first_turn
+        second_turn
+        game
     end
 
     private
+    def first_turn
+        @players.each do |player|
+            player.place_first_pieces
+        end
+    end
+    def second_turn
+        @players.reverse.each do |player|
+            player.place_first_pieces
+        end
+    end
+    def game
+        puts "Begin the game"
+    end
     def setup
         @board = SettlersOfCatan::GameBoard.new
         colors = ["red","blue","white","orange"]
@@ -23,13 +37,14 @@ class SettlersOfCatan::CLI
         if color.to_i != 0 
             color = colors[color.to_i-1]
         end
-        
+
         @players = []
         colors.each do |c|
             cat = c == color ? "human" : "computer"
             @players << SettlersOfCatan::Player.new(cat,c)
         end
-        binding.pry
+        @players.shuffle!
+        
     end
     def ask(phrase, &condition)
         puts phrase
