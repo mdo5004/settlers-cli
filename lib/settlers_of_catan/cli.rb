@@ -27,8 +27,8 @@ class SettlersOfCatan::CLI
         end
     end
     def game
-        
-            puts "Begin the game"
+
+        puts "Begin the game"
     end
     def setup
         @board = SettlersOfCatan::GameBoard.new
@@ -54,7 +54,7 @@ class SettlersOfCatan::CLI
         if player.category == "human"
             @board.display_current_board
             facet_number = ask("Where would you like to place your first settlement?")
-            player.place_settlement(facet_number)
+            player.place_settlement(facet_number.to_i)
         else
             # TODO -- COMPUTER PLAYER PICKS A FACET
         end
@@ -74,8 +74,8 @@ class SettlersOfCatan::CLI
             if !valid_text
                 user_input = ask(phrase) {condition}
             end
-
-            return user_input
         end
+        return user_input
+
     end
 end

@@ -6,6 +6,9 @@ class SettlersOfCatan::Settlement
         @facet = nil
     end
 
+    def show
+        return "$"
+    end
     def is_on_the_board
         if @facet == nil
             on_the_board = false

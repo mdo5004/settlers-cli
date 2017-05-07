@@ -11,7 +11,12 @@ class SettlersOfCatan::Player
     end
 
     def place_settlement(facet_number)
-        
+        settlement = @settlements.find {|s| !s.is_on_the_board}
+        if settlement
+            @board.facet[facet_number-1].setOccupier(settlement)
+        else
+            puts "Cannot place settlement"
+        end
     end
-
+            
 end

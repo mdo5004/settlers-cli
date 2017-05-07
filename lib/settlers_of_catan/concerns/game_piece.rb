@@ -1,0 +1,3 @@
+module SettlersOfCatan::GamePiece
+    
+end
