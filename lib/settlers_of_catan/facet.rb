@@ -36,7 +36,9 @@ class SettlersOfCatan::Facet
     
     def setOccupier(o)
         if @occupier
+            if @occupier.player == o.player && @occupier.class == "Settlement"
             removeOccupier
+            end
         end
         @occupier = o
         o.facet = self
