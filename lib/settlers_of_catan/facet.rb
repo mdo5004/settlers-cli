@@ -15,11 +15,11 @@ class SettlersOfCatan::Facet
             display = display_value
         end
         if display_value.length == 1 
-            if @number % 2 == 0 && @number < 10
+#            if @number % 2 == 0
                 display = "#{display} "
-            else 
-                display = "#{display}_"
-            end
+#            else 
+#                display = "#{display}_"
+#            end
         else
             display = "#{display}"
         end

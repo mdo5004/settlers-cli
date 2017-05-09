@@ -2,13 +2,17 @@ class SettlersOfCatan::GameBoard
     attr_reader :facet, :tile_numbers
 
     def initialize
-        @facet = []
+        @facet = Array.new(11){Array.new(6)}
+        facet_x = [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10]
+        facet_y = [3, 4, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 3, 4]
+    
         54.times do |i|
-            @facet << SettlersOfCatan::Facet.new(i+1)
+            @facet[facet_x[i],facet_y[i]] = SettlersOfCatan::Facet.new(i+1)
         end
+        
         @edge = []
         90.times do |i|
-            dirs = ["horiz","fwd","back"]
+            dirs = ["horiz", "fwd","back"]
             @edge << SettlersOfCatan::Edge.new(i,dirs[i%3])
         end
 
