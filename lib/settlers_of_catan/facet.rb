@@ -1,8 +1,9 @@
 class SettlersOfCatan::Facet
-    attr_accessor :occupier
+    attr_accessor :occupier, :neighbors
     def initialize(number)
         @number = number
         @color = :default
+        @neighbors = neighbors
     end
 
     def show
