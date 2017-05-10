@@ -96,4 +96,39 @@ class SettlersOfCatan::GameBoard
         puts " "*26 + @edge[71].show + " "*9 + @edge[73].show
         puts " "*27 + @edge[71].show + @facet[10][2].show + @edge[75].show + @edge[73].show + @facet[10][3].show
     end
+    
+    def display_current_roads
+        puts "\e[H\e[2J"
+        puts " "*28 + @facet[0][2].show("symbol") + @edge[0].show("number") + @facet[0][3].show("symbol")
+        puts " "*27 + @edge[1].show + " "*7 + @edge[2].show
+        puts " "*26 + @edge[1].show("number") + " "*8 + @edge[2].show("number")
+        puts " "*18 + @facet[1][1].show("symbol") + @edge[3].show("number") + @edge[1].show + @facet[1][2].show("symbol") + " "*3  + @tile[0].show + " "*4  + @edge[2].show + @facet[1][3].show("symbol") + @edge[6].show("number") + @facet[1][4].show("symbol")
+        puts " "*17 + @edge[4].show + " "*7 + @edge[5].show + " "*11 + @edge[7].show + " "*7 + @edge[8].show
+        puts " "*16 + @edge[4].show("number") + " "*8 + @edge[5].show("number") + " "*8 + @edge[7].show("number") + " "*8 + @edge[8].show("number")
+        puts " "*8 + @facet[2][0].show("symbol") + @edge[9].show("number") + @edge[4].show + @facet[2][1].show("symbol") + " "*3 + @tile[1].show + " "*4 + @edge[5].show + @facet[2][2].show("symbol") + @edge[12].show("number") + @edge[7].show + @facet[2][3].show("symbol") + " "*3 + @tile[2].show + " "*4 + @edge[8].show + @facet[2][4].show("symbol") + @edge[15].show("number") + @facet[2][5].show("symbol")
+        puts " "*7 + @edge[10].show + " "*7 + @edge[11].show+ " "*11 + @edge[13].show+ " "*7 + @edge[14].show + " "*11 + @edge[16].show + " "*7 + @edge[17].show
+        puts " "*6 + @edge[10].show("number") + " "*8 + @edge[11].show("number")+ " "*8 + @edge[13].show("number") + " "*8 + @edge[14].show("number") + " "*8 + @edge[16].show("number") + " "*8 + @edge[17].show("number")
+        puts " "*5 + @edge[10].show + @facet[3][0].show("symbol") + " "*3 + @tile[3].show+ " "*4 + @edge[11].show + @facet[3][1].show("symbol") + @edge[18].show("number")+ @edge[13].show+ @facet[3][2].show("symbol") + " "*3 + @tile[4].show+ " "*4+ @edge[14].show + @facet[3][3].show("symbol") + @edge[21].show("number") + @edge[16].show + @facet[3][4].show("symbol") + " "*3 + @tile[5].show + " "*4 + @edge[17].show + @facet[3][5].show("symbol")
+        puts " "*5 + @edge[35].show + " "*11 + @edge[19].show + " "*7 + @edge[20].show + " "*11 + @edge[22].show+ " "*7 + @edge[23].show + " "*11 + @edge[34].show
+        puts " "*6 + @edge[35].show("number") + " "*8 + @edge[19].show("number") + " "*8 + @edge[20].show("number") + " "*8 + @edge[22].show("number")+ " "*8 + @edge[23].show("number") + " "*8 + @edge[34].show("number")
+        puts " "*7 + @edge[35].show + @facet[4][0].show("symbol") + @edge[24].show("number") + @edge[19].show + @facet[4][1].show("symbol") + " "*3 + @tile[6].show + " "*4 + @edge[20].show + @facet[4][2].show("symbol") + @edge[27].show("number") + @edge[22].show + @facet[4][3].show("symbol") + " "*3 + @tile[7].show + " "*4 + @edge[23].show + @facet[4][4].show("symbol") + @edge[30].show("number") + @edge[34].show + @facet[4][5].show("symbol")
+        puts " "*7 + @edge[25].show + " "*7 + @edge[26].show+ " "*11 + @edge[28].show+ " "*7 + @edge[29].show + " "*11 + @edge[31].show + " "*7 + @edge[32].show
+        puts " "*6 + @edge[25].show("number") + " "*8 + @edge[26].show("number")+ " "*8 + @edge[28].show("number")+ " "*8 + @edge[29].show("number") + " "*8 + @edge[31].show("number") + " "*8 + @edge[32].show("number")
+        puts " "*5 + @edge[25].show + @facet[5][0].show("symbol") + " "*3 + @tile[8].show+ " "*4 + @edge[26].show + @facet[5][1].show("symbol") + @edge[36].show("number")+ @edge[28].show+ @facet[5][2].show("symbol") + " "*3 + @tile[9].show+ " "*4+ @edge[29].show + @facet[5][3].show("symbol") + @edge[39].show("number") + @edge[31].show + @facet[5][4].show("symbol") + " "*3 + @tile[10].show + " "*4 + @edge[32].show + @facet[5][5].show("symbol")
+        puts " "*5 + @edge[53].show + " "*11 + @edge[37].show + " "*7 + @edge[38].show + " "*11 + @edge[40].show+ " "*7 + @edge[41].show + " "*11 + @edge[52].show
+        puts " "*6 + @edge[53].show("number") + " "*8 + @edge[37].show("number") + " "*8 + @edge[38].show("number") + " "*8 + @edge[40].show("number")+ " "*8 + @edge[41].show("number") + " "*8 + @edge[52].show("number")
+        puts " "*7 + @edge[53].show + @facet[6][0].show("symbol") + @edge[42].show("number") + @edge[37].show + @facet[6][1].show("symbol") + " "*3 + @tile[11].show + " "*4 + @edge[38].show + @facet[6][2].show("symbol") + @edge[45].show("number") + @edge[40].show + @facet[6][3].show("symbol") + " "*3 + @tile[12].show + " "*4 + @edge[41].show + @facet[6][4].show("symbol") + @edge[48].show("number") + @edge[52].show + @facet[6][5].show("symbol")
+        puts " "*7 + @edge[43].show + " "*7 + @edge[44].show+ " "*11 + @edge[46].show+ " "*7 + @edge[47].show + " "*11 + @edge[49].show + " "*7 + @edge[50].show
+        puts " "*6 + @edge[43].show("number") + " "*8 + @edge[44].show("number")+ " "*8 + @edge[46].show("number")+ " "*8 + @edge[47].show("number") + " "*8 + @edge[49].show("number") + " "*8 + @edge[50].show("number")
+        puts " "*5 + @edge[43].show + @facet[7][0].show("symbol") + " "*3 + @tile[13].show+ " "*4 + @edge[44].show + @facet[7][1].show("symbol") + @edge[54].show("number") + @edge[46].show+ @facet[7][2].show("symbol") + " "*3 + @tile[14].show+ " "*4+ @edge[47].show + @facet[7][3].show("symbol") + @edge[57].show("number") + @edge[49].show + @facet[7][4].show("symbol") + " "*3 + @tile[15].show + " "*4 + @edge[50].show + @facet[7][5].show("symbol")
+        puts " "*5 + @edge[62].show + " "*11 + @edge[55].show + " "*7 + @edge[56].show + " "*11 + @edge[58].show+ " "*7 + @edge[59].show + " "*11 + @edge[61].show
+        puts " "*6 + @edge[62].show("number") + " "*8 + @edge[55].show("number") + " "*8 + @edge[56].show("number") + " "*8 + @edge[58].show("number")+ " "*8 + @edge[59].show("number") + " "*8 + @edge[61].show("number")
+        puts " "*7 + @edge[62].show + @facet[8][0].show("symbol") + @edge[60].show("number") + @edge[55].show + @facet[8][1].show("symbol") + " "*3 + @tile[16].show + " "*4 + @edge[56].show + @facet[8][2].show("symbol") + @edge[63].show("number") + @edge[58].show + @facet[8][3].show("symbol") + " "*3 + @tile[17].show + " "*4 + @edge[59].show + @facet[8][4].show("symbol") + @edge[66].show("number") + @edge[61].show + @facet[8][5].show("symbol")
+        puts " "*15 + @edge[68].show + " "*11 + @edge[64].show + " "*7 + @edge[65].show + " "*11 + @edge[67].show
+        puts " "*16 + @edge[68].show("number") + " "*8 + @edge[64].show("number") + " "*8 + @edge[65].show("number") + " "*8 + @edge[67].show("number")
+        puts " "*17 + @edge[68].show + @facet[9][1].show("symbol") + @edge[69].show("number") + @edge[64].show + @facet[9][2].show("symbol") + " "*3 + @tile[18].show + " "*4 + @edge[65].show + @facet[9][3].show("symbol") + @edge[72].show("number") + @edge[67].show + @facet[9][4].show("symbol")
+        puts " "*25 + @edge[71].show + " "*11 + @edge[73].show
+        puts " "*26 + @edge[71].show("number") + " "*8 + @edge[73].show("number")
+        puts " "*27 + @edge[71].show + @facet[10][2].show("symbol") + @edge[75].show("number") + @edge[73].show + @facet[10][3].show("symbol")
+    end
 end

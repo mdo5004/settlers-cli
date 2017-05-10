@@ -9,14 +9,25 @@ class SettlersOfCatan::Edge
 
     end
 
-    def show
-        case @direction
-        when "fwd"
-            display = "/"
-        when "back"
-            display = "\\"
-        when "horiz"
-            display = "_____"
+    def show(mode="symbol")
+        if mode=="symbol"
+            case @direction
+            when "fwd"
+                display = "/"
+            when "back"
+                display = "\\"
+            when "horiz"
+                display = "_____"
+            end
+        elsif mode=="number"
+            case @direction
+            when "fwd"
+                display = @number < 10 ? "#{@number} " : "#{@number}"
+            when "back"
+                display = @number < 10 ? "#{@number} " : "#{@number}"
+            when "horiz"
+                display = @number < 10 ? "_#{@number}___" : "#{@number}___" 
+            end
         end
         display = Color.colorize_by_color(display,occupier_color)
         return display

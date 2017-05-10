@@ -58,7 +58,7 @@ class SettlersOfCatan::CLI
             if !did_place
                 place_first_pieces(player)
             end
-            @board.display_current_board
+            @board.display_current_roads
             edge_number = ask("Where would you like to place your first road?")
             did_place = player.place_road(edge_number)
         else
