@@ -14,22 +14,6 @@ class SettlersOfCatan::CLI
         second_turn
         game
     end
-
-    private
-    def first_turn
-        @players.each do |player|
-            place_first_pieces(player)
-        end
-    end
-    def second_turn
-        @players.reverse.each do |player|
-            place_first_pieces(player)
-        end
-    end
-    def game
-
-        puts "Begin the game"
-    end
     def setup
         @board = SettlersOfCatan::GameBoard.new
         colors = ["red","blue","white","orange"]
@@ -49,6 +33,23 @@ class SettlersOfCatan::CLI
         @players.shuffle!
 
     end
+    
+    private
+    def first_turn
+        @players.each do |player|
+            place_first_pieces(player)
+        end
+    end
+    def second_turn
+        @players.reverse.each do |player|
+            place_first_pieces(player)
+        end
+    end
+    def game
+
+        puts "Begin the game"
+    end
+
 
     def place_first_pieces(player)
         if player.category == "human"
@@ -60,7 +61,7 @@ class SettlersOfCatan::CLI
             end
             @board.display_current_roads
             edge_number = ask("Where would you like to place your first road?")
-            did_place = player.place_road(edge_number)
+            did_place = player.place_road(edge_number.to_if)
         else
             # TODO -- COMPUTER PLAYER PICKS A FACET
         end
