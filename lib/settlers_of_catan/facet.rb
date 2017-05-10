@@ -18,7 +18,8 @@ class SettlersOfCatan::Facet
         else
             display_value = @number.to_s
             if mode=="symbol"
-                display_value = facing=="right" ? "__" : "  "
+                display_value = (facing=="right" && !([18,30,42].include? @number)) ? "__" : "  "
+                
             end
             display = display_value
         end
