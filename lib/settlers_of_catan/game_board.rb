@@ -9,6 +9,7 @@ class SettlersOfCatan::GameBoard
         54.times do |i|
             @facet[facet_x[i]][facet_y[i]] = SettlersOfCatan::Facet.new(i+1)
         end
+        
         54.times do |i|
 
             n1  = facet_x[i] == 0 ? nil : @facet[facet_x[i] - 1][facet_y[i]] 
@@ -18,21 +19,26 @@ class SettlersOfCatan::GameBoard
                 if facet_y[i] % 2 == 0 
                     # row is even, column is even
                     n3  = facet_y[i] == 5 ? nil : @facet[facet_x[i]][facet_y[i] + 1]
+                    facing = "right"
                 else
                     # row is even, column is odd
                     n3  = facet_y[i] == 0 ? nil : @facet[facet_x[i]][facet_y[i] - 1]
+                    facing = "left"
                 end
             else
                 if facet_y[i] % 2 == 0
                     # row is odd, column is even
                     n3  = facet_y[i] == 0 ? nil : @facet[facet_x[i]][facet_y[i] - 1]
+                    facing = "left"
                 else
                     # row is odd, column is odd
                     n3  = facet_y[i] == 5 ? nil : @facet[facet_x[i]][facet_y[i] + 1]
+                    facing = "right"
                 end
             end
             facet = @facet[facet_x[i]][facet_y[i]]
             facet.neighbors = [n1,n2,n3]
+            facet.facing = facing
         end
 
         @edge = []
@@ -61,7 +67,7 @@ class SettlersOfCatan::GameBoard
         puts " "*28 + @facet[0][2].show + @edge[0].show + @facet[0][3].show
         puts " "*27 + @edge[1].show + " "*7 + @edge[2].show
         puts " "*26 + @edge[1].show + " "*9 + @edge[2].show
-        puts " "*18 + @facet[1][2].show + @edge[3].show + @edge[1].show + @facet[1][2].show + " "*4  + @tile[0].show + " "*4  + @edge[2].show + @facet[1][3].show + @edge[6].show + @facet[1][4].show
+        puts " "*18 + @facet[1][1].show + @edge[3].show + @edge[1].show + @facet[1][2].show + " "*4  + @tile[0].show + " "*4  + @edge[2].show + @facet[1][3].show + @edge[6].show + @facet[1][4].show
         puts " "*17 + @edge[4].show + " "*7 + @edge[5].show + " "*11 + @edge[7].show + " "*7 + @edge[8].show
         puts " "*16 + @edge[4].show + " "*9 + @edge[5].show + " "*9 + @edge[7].show + " "*9 + @edge[8].show
         puts " "*8 + @facet[2][0].show + @edge[9].show + @edge[4].show + @facet[2][1].show + " "*4 + @tile[1].show + " "*4 + @edge[5].show + @facet[2][2].show + @edge[12].show + @edge[7].show + @facet[2][3].show + " "*3 + @tile[2].show + " "*4 + @edge[8].show + @facet[2][4].show + @edge[15].show + @facet[2][5].show
@@ -91,9 +97,3 @@ class SettlersOfCatan::GameBoard
         puts " "*27 + @edge[71].show + @facet[10][2].show + @edge[75].show + @edge[73].show + @facet[10][3].show
     end
 end
-0
-1
-2
-3
-4
-5

@@ -1,5 +1,5 @@
 class SettlersOfCatan::Facet
-    attr_accessor :occupier, :neighbors
+    attr_accessor :occupier, :neighbors, :facing
     def initialize(number)
         @number = number
         @color = :default
@@ -15,14 +15,8 @@ class SettlersOfCatan::Facet
             display_value = @number.to_s
             display = display_value
         end
-        if display_value.length == 1 
-#            if @number % 2 == 0
-                display = "#{display} "
-#            else 
-#                display = "#{display}_"
-#            end
-        else
-            display = "#{display}"
+        if display_value.length == 1
+            display = (facing=="right") ? "#{display}_" : display
         end
         return display
     end
