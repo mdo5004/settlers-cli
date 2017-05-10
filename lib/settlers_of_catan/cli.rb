@@ -61,7 +61,7 @@ class SettlersOfCatan::CLI
             end
             @board.display_current_roads
             edge_number = ask("Where would you like to place your first road?")
-            did_place = player.place_road(edge_number.to_if)
+            did_place = player.place_road(edge_number.to_i)
         else
             # TODO -- COMPUTER PLAYER PICKS A FACET
         end

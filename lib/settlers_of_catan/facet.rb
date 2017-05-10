@@ -13,8 +13,7 @@ class SettlersOfCatan::Facet < SettlersOfCatan::Space
     def show(mode="number")
         if @occupier
             display_value = @occupier.show
-            occupier_color = @occupier.color
-            display = Color.colorize_by_color(display_value,occupier_color)
+            display = Color.colorize_by_occupier(display_value,@occupier)
         else
             display_value = @number.to_s
             if mode=="symbol"

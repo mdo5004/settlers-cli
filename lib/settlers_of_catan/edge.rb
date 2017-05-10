@@ -1,34 +1,41 @@
 class SettlersOfCatan::Edge < SettlersOfCatan::Space
     attr_accessor :number, :direction
+    @@all = []
     def initialize(number, direction)
         @number = number
         @direction = direction
         @color = :default
+        @@all << self
     end
-
+    def self.all
+        @@all
+    end
     def show(mode="symbol")
         if mode=="symbol"
             case @direction
             when "fwd"
-                display = "/"
+                display_value = "/"
             when "back"
-                display = "\\"
+                display_value = "\\"
             when "horiz"
-                display = "_____"
+                display_value = "_____"
             end
             
         elsif mode=="number"
             case @direction
             when "fwd"
-                display = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
+                display_value = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
             when "back"
-                display = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
+                display_value = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
             when "horiz"
-                display = @number <= 10 ? "_#{@number + 1}___" : "#{@number + 1}___" 
+                display_value = @number <= 10 ? "_#{@number + 1}___" : "#{@number + 1}___" 
             end
         end
-        
-        display = Color.colorize_by_color(display,occupier_color)
+
+        display = Color.colorize_by_occupier(display_value,@occupier)
+        if @occupier
+            binding.pry
+        end
         return display
     end
 
