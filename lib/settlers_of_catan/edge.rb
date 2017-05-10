@@ -1,12 +1,9 @@
-class SettlersOfCatan::Edge
-    attr_accessor :number, :direction, :occupier
-
-    # colors from http://misc.flogisoft.com/bash/tip_colors_and_formatting
+class SettlersOfCatan::Edge < SettlersOfCatan::Space
+    attr_accessor :number, :direction
     def initialize(number, direction)
         @number = number
         @direction = direction
         @color = :default
-
     end
 
     def show(mode="symbol")
@@ -19,26 +16,20 @@ class SettlersOfCatan::Edge
             when "horiz"
                 display = "_____"
             end
+            
         elsif mode=="number"
             case @direction
             when "fwd"
-                display = @number < 10 ? "#{@number} " : "#{@number}"
+                display = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
             when "back"
-                display = @number < 10 ? "#{@number} " : "#{@number}"
+                display = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
             when "horiz"
-                display = @number < 10 ? "_#{@number}___" : "#{@number}___" 
+                display = @number <= 10 ? "_#{@number + 1}___" : "#{@number + 1}___" 
             end
         end
+        
         display = Color.colorize_by_color(display,occupier_color)
         return display
     end
 
-    def occupier_color
-        if @occupier
-            c = Color.color_of(@occupier) 
-        else
-            c = Color.default_color
-        end
-        return c
-    end
 end

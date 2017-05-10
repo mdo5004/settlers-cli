@@ -1,5 +1,5 @@
-class SettlersOfCatan::Facet
-    attr_accessor :occupier, :neighbors, :facing
+class SettlersOfCatan::Facet < SettlersOfCatan::Space
+    attr_accessor :neighbors, :facing
     @@all = []
     def initialize(number)
         @number = number
@@ -29,29 +29,6 @@ class SettlersOfCatan::Facet
         end
         return display
     end
-    def occupier_color
-        if @occupier
-            c = Color.color_of(@occupier) 
-        else
-            c = Color.default_color
-        end
-        return c
-    end
-    def setOccupier(o)
-        if @occupier
-            if @occupier.player == o.player && @occupier.class == "Settlement"
-                removeOccupier
-            else
-                puts "Space occupied by another player"
-                return false
-            end
-        end
-        @occupier = o
-        o.location = self
-        return true
-    end
-    def removeOccupier
-        @occupier.location = nil
-        @occupier = nil
-    end
+    
+    
 end
