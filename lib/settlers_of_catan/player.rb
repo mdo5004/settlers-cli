@@ -37,7 +37,6 @@ class SettlersOfCatan::Player
         edge = SettlersOfCatan::Edge.all[edge_number-1]
         if road && edge.isFree?
             edge.setOccupier(road)
-            binding.pry
         else
             puts "Can't place roads" 
         end

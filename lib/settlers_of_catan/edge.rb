@@ -33,9 +33,7 @@ class SettlersOfCatan::Edge < SettlersOfCatan::Space
         end
 
         display = Color.colorize_by_occupier(display_value,@occupier)
-        if @occupier
-            binding.pry
-        end
+        
         return display
     end
 
