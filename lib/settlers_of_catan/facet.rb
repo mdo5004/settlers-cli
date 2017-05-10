@@ -1,11 +1,15 @@
 class SettlersOfCatan::Facet
     attr_accessor :occupier, :neighbors, :facing
+    @@all = []
     def initialize(number)
         @number = number
         @color = :default
         @neighbors = neighbors
+        @@all << self
     end
-
+    def self.all
+        @@all
+    end
     def show
         if @occupier
             display_value = @occupier.show

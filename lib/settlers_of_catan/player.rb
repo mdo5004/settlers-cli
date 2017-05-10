@@ -21,10 +21,10 @@ class SettlersOfCatan::Player
     end
 
     def place_settlement(facet_number)
+        puts "Placed settlement on facet "
         settlement = @settlements.find {|s| !s.is_on_the_board}
-        
         if settlement
-            did_place_settlement = @board.facet[facet_number-1].setOccupier(settlement)
+            did_place_settlement = SettlersOfCatan::Facet.all[facet_number-1].setOccupier(settlement)
         else
             puts "You don't have any more settlements"
             did_place_settlement = false
