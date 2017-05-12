@@ -18,17 +18,19 @@ class Color
             str = str.to_s
         end
         occupier_color = occupier ? occupier.color : "default"
-        color = @@colors[occupier_color.to_sym]
-        display = self.colorize_by_color(str,color)
+        bkg = @@background_colors[occupier_color.to_sym]
+        txt = @@colors[@@text_color_for_background[occupier_color.to_sym]]
+        color = "#{bkg}#{txt}"
+        display = self.colorize(str,color)
         return display
     end
     def self.colorize_by_color(str,color)
         if !str.is_a? String 
             str = str.to_s
         end
-        color = color ? @@background_colors[color.to_sym] : @@background_colors[:default]
-        display = self.colorize(str,color)
-        return display
+        bkg = color ? @@background_colors[color.to_sym] : @@background_colors[:default]
+        txt =  color ? @@colors[@@text_color_for_background[color.to_sym]] : @@colors[:default]
+        return "#{bkg}#{txt}"
     end
     def self.colorize_by_resource(str,resource)
         if !str.is_a? String 
