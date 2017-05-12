@@ -24,11 +24,11 @@ class SettlersOfCatan::Edge < SettlersOfCatan::Space
         elsif mode=="number"
             case @direction
             when "fwd"
-                display_value = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
+                display_value = @number < 9 ? "#{@number + 1} " : "#{@number + 1}"
             when "back"
-                display_value = @number <= 10 ? "#{@number + 1} " : "#{@number + 1}"
+                display_value = @number < 9 ? "#{@number + 1} " : "#{@number + 1}"
             when "horiz"
-                display_value = @number <= 10 ? "_#{@number + 1}___" : "#{@number + 1}___" 
+                display_value = @number < 9 ? "_#{@number + 1}___" : "#{@number + 1}___" 
             end
         end
 

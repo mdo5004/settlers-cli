@@ -48,7 +48,6 @@ class SettlersOfCatan::GameBoard
             facet.edges = facet_roads[i].collect { |n| @edge[n] }
         end
 
-        binding.pry
 
         @tile = []
         @tile_numbers = [5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11]
@@ -109,7 +108,7 @@ class SettlersOfCatan::GameBoard
         puts " "*17 + @edge[4].show + " "*7 + @edge[5].show + " "*11 + @edge[7].show + " "*7 + @edge[8].show
         puts " "*16 + @edge[4].show("number") + " "*8 + @edge[5].show("number") + " "*8 + @edge[7].show("number") + " "*8 + @edge[8].show("number")
         puts " "*8 + @facet[2][0].show("symbol") + @edge[9].show("number") + @edge[4].show + @facet[2][1].show("symbol") + " "*3 + @tile[1].show + " "*4 + @edge[5].show + @facet[2][2].show("symbol") + @edge[12].show("number") + @edge[7].show + @facet[2][3].show("symbol") + " "*3 + @tile[2].show + " "*4 + @edge[8].show + @facet[2][4].show("symbol") + @edge[15].show("number") + @facet[2][5].show("symbol")
-        puts " "*7 + @edge[10].show + " "*6 + @edge[11].show+ " "*11 + @edge[13].show+ " "*7 + @edge[14].show + " "*11 + @edge[16].show + " "*7 + @edge[17].show
+        puts " "*7 + @edge[10].show + " "*7 + @edge[11].show+ " "*11 + @edge[13].show+ " "*7 + @edge[14].show + " "*11 + @edge[16].show + " "*7 + @edge[17].show
         puts " "*6 + @edge[10].show("number") + " "*8 + @edge[11].show("number")+ " "*8 + @edge[13].show("number") + " "*8 + @edge[14].show("number") + " "*8 + @edge[16].show("number") + " "*8 + @edge[17].show("number")
         puts " "*5 + @edge[10].show + @facet[3][0].show("symbol") + " "*3 + @tile[3].show+ " "*4 + @edge[11].show + @facet[3][1].show("symbol") + @edge[18].show("number")+ @edge[13].show+ @facet[3][2].show("symbol") + " "*3 + @tile[4].show+ " "*4+ @edge[14].show + @facet[3][3].show("symbol") + @edge[21].show("number") + @edge[16].show + @facet[3][4].show("symbol") + " "*3 + @tile[5].show + " "*4 + @edge[17].show + @facet[3][5].show("symbol")
         puts " "*5 + @edge[35].show + " "*11 + @edge[19].show + " "*7 + @edge[20].show + " "*11 + @edge[22].show+ " "*7 + @edge[23].show + " "*11 + @edge[34].show
