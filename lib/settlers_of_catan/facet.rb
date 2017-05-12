@@ -24,8 +24,10 @@ class SettlersOfCatan::Facet < SettlersOfCatan::Space
         end
 
         if display_value.length == 1
-
-            display = (facing=="right") ? "#{display}#{Color.colorize_by_color("_",horizontal_edge_color)}" : display
+            spacer_color = horizontal_edge_color
+            spacer = Color.colorize_by_color("_",spacer_color)
+            
+            display = (facing=="right") ? "#{display}#{spacer}" : "#{display}"
         end
         return display
     end
@@ -37,7 +39,9 @@ class SettlersOfCatan::Facet < SettlersOfCatan::Space
         end 
         if leading_edge.occupier
             color = leading_edge.occupier.color
+            binding.pry
         end
+        return color
     end
 
 end
