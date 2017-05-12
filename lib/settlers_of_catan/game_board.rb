@@ -5,7 +5,13 @@ class SettlersOfCatan::GameBoard
         @facet = Array.new(11){Array.new(6)}
         facet_x = [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10]
         facet_y = [2, 3, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 2, 3]
-
+        facet_roads = [[0,1],[0,2],[3,4],[1,3,5],[2,6,7],[6,8],[9,10],[4,9,11],[5,12,13],[7,12,14],[8,15,16],[15,17],[10,35],[11,18,19],[13,18,20],[14,21,22],[16,21,23],[17,34],[35,24,25],[19,24,26],[20,27,28],[22,27,29],[23,30,31],[34,30,32],[25,53],[26,36,37],[28,36,38],[29,39,40],[31,39,41],[32,52],[53,42,43],[37,42,44],[38,45,46],[40,45,47],[41,48,49],[52,48,50],[43,62],[44,54,55],[46,54,56],[47,57,58],[49,57,59],[50,61],[62,60],[55,60,68],[56,63,64],[58,63,65],[59,66,67],[61,66],[68,69],[64,69,71],[65,72,73],[67,72],[71,75],[73,75]]
+        @edge = []
+        76.times do |i|
+            dirs = ["horiz", "fwd","back"]
+            @edge << SettlersOfCatan::Edge.new(i,dirs[i%3])
+        end
+        
         54.times do |i|
             @facet[facet_x[i]][facet_y[i]] = SettlersOfCatan::Facet.new(i+1)
         end
@@ -39,13 +45,10 @@ class SettlersOfCatan::GameBoard
             facet = @facet[facet_x[i]][facet_y[i]]
             facet.neighbors = [n1,n2,n3]
             facet.facing = facing
+            facet.edges = facet_roads[i].collect { |n| @edge[n] }
         end
 
-        @edge = []
-        90.times do |i|
-            dirs = ["horiz", "fwd","back"]
-            @edge << SettlersOfCatan::Edge.new(i,dirs[i%3])
-        end
+        binding.pry
 
         @tile = []
         @tile_numbers = [5,2,6,3,8,10,9,12,11,4,8,10,9,4,5,6,3,11]
@@ -106,7 +109,7 @@ class SettlersOfCatan::GameBoard
         puts " "*17 + @edge[4].show + " "*7 + @edge[5].show + " "*11 + @edge[7].show + " "*7 + @edge[8].show
         puts " "*16 + @edge[4].show("number") + " "*8 + @edge[5].show("number") + " "*8 + @edge[7].show("number") + " "*8 + @edge[8].show("number")
         puts " "*8 + @facet[2][0].show("symbol") + @edge[9].show("number") + @edge[4].show + @facet[2][1].show("symbol") + " "*3 + @tile[1].show + " "*4 + @edge[5].show + @facet[2][2].show("symbol") + @edge[12].show("number") + @edge[7].show + @facet[2][3].show("symbol") + " "*3 + @tile[2].show + " "*4 + @edge[8].show + @facet[2][4].show("symbol") + @edge[15].show("number") + @facet[2][5].show("symbol")
-        puts " "*7 + @edge[10].show + " "*7 + @edge[11].show+ " "*11 + @edge[13].show+ " "*7 + @edge[14].show + " "*11 + @edge[16].show + " "*7 + @edge[17].show
+        puts " "*7 + @edge[10].show + " "*6 + @edge[11].show+ " "*11 + @edge[13].show+ " "*7 + @edge[14].show + " "*11 + @edge[16].show + " "*7 + @edge[17].show
         puts " "*6 + @edge[10].show("number") + " "*8 + @edge[11].show("number")+ " "*8 + @edge[13].show("number") + " "*8 + @edge[14].show("number") + " "*8 + @edge[16].show("number") + " "*8 + @edge[17].show("number")
         puts " "*5 + @edge[10].show + @facet[3][0].show("symbol") + " "*3 + @tile[3].show+ " "*4 + @edge[11].show + @facet[3][1].show("symbol") + @edge[18].show("number")+ @edge[13].show+ @facet[3][2].show("symbol") + " "*3 + @tile[4].show+ " "*4+ @edge[14].show + @facet[3][3].show("symbol") + @edge[21].show("number") + @edge[16].show + @facet[3][4].show("symbol") + " "*3 + @tile[5].show + " "*4 + @edge[17].show + @facet[3][5].show("symbol")
         puts " "*5 + @edge[35].show + " "*11 + @edge[19].show + " "*7 + @edge[20].show + " "*11 + @edge[22].show+ " "*7 + @edge[23].show + " "*11 + @edge[34].show

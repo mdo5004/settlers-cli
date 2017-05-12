@@ -1,5 +1,5 @@
 class SettlersOfCatan::Facet < SettlersOfCatan::Space
-    attr_accessor :neighbors, :facing
+    attr_accessor :neighbors, :facing, :edges
     @@all = []
     def initialize(number)
         @number = number
