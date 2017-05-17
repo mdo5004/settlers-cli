@@ -1,5 +1,5 @@
 class SettlersOfCatan::Player
-    attr_accessor :category, :color, :board
+    attr_accessor :category, :color, :board, :victory_points
     attr_reader :settlements, :cities, :roads
     def initialize(category,color)
         @category = category
@@ -17,7 +17,8 @@ class SettlersOfCatan::Player
         15.times do 
             @roads << SettlersOfCatan::Road.new(self,@color)
         end
-
+        
+        @victory_points = 0
     end
 
     def place_settlement(facet_number)
