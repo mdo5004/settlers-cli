@@ -11,11 +11,11 @@ class SettlersOfCatan::GameBoard
             dirs = ["horiz", "fwd","back"]
             @edge << SettlersOfCatan::Edge.new(i,dirs[i%3])
         end
-        
+
         54.times do |i|
             @facet[facet_x[i]][facet_y[i]] = SettlersOfCatan::Facet.new(i+1)
         end
-        
+
         54.times do |i|
 
             n1  = facet_x[i] == 0 ? nil : @facet[facet_x[i] - 1][facet_y[i]] 
@@ -62,17 +62,34 @@ class SettlersOfCatan::GameBoard
                 @tile << SettlersOfCatan::Tile.new(@tile_numbers[i], @tile_resources[i])                
             end
         end
-
     end
+
+    def all_facets
+        return @facet.flatten
+    end
+    def available_facets
+        facets = all_facets.select do |facet|
+            facet.isFree?
+        end
+    end
+    def display_legend
+        puts ""
+        resources = ["ore", "brick", "sheep", "wheat", "wood"]
+        legend_string = resources.collect { |res|  Color.colorize_by_resource("#{res}", res)
+            }.join(", ")
+        puts "Legend: " + legend_string
+    end
+
+
     def display_current_board
         puts "\e[H\e[2J"
         puts " "*28 + @facet[0][2].show + @edge[0].show + @facet[0][3].show
         puts " "*27 + @edge[1].show + " "*7 + @edge[2].show
         puts " "*26 + @edge[1].show + " "*9 + @edge[2].show
-        puts " "*18 + @facet[1][1].show + @edge[3].show + @edge[1].show + @facet[1][2].show + " "*4  + @tile[0].show + " "*4  + @edge[2].show + @facet[1][3].show + @edge[6].show + @facet[1][4].show
+        puts " "*18 + @facet[1][1].show + @edge[3].show + @edge[1].show + @facet[1][2].show + " "*3  + @tile[0].show + " "*4  + @edge[2].show + @facet[1][3].show + @edge[6].show + @facet[1][4].show
         puts " "*17 + @edge[4].show + " "*7 + @edge[5].show + " "*11 + @edge[7].show + " "*7 + @edge[8].show
         puts " "*16 + @edge[4].show + " "*9 + @edge[5].show + " "*9 + @edge[7].show + " "*9 + @edge[8].show
-        puts " "*8 + @facet[2][0].show + @edge[9].show + @edge[4].show + @facet[2][1].show + " "*4 + @tile[1].show + " "*4 + @edge[5].show + @facet[2][2].show + @edge[12].show + @edge[7].show + @facet[2][3].show + " "*3 + @tile[2].show + " "*4 + @edge[8].show + @facet[2][4].show + @edge[15].show + @facet[2][5].show
+        puts " "*8 + @facet[2][0].show + @edge[9].show + @edge[4].show + @facet[2][1].show + " "*3 + @tile[1].show + " "*4 + @edge[5].show + @facet[2][2].show + @edge[12].show + @edge[7].show + @facet[2][3].show + " "*3 + @tile[2].show + " "*4 + @edge[8].show + @facet[2][4].show + @edge[15].show + @facet[2][5].show
         puts " "*7 + @edge[10].show + " "*7 + @edge[11].show+ " "*11 + @edge[13].show+ " "*7 + @edge[14].show + " "*11 + @edge[16].show + " "*7 + @edge[17].show
         puts " "*6 + @edge[10].show + " "*9 + @edge[11].show+ " "*9 + @edge[13].show+ " "*9 + @edge[14].show + " "*9 + @edge[16].show + " "*9 + @edge[17].show
         puts " "*5 + @edge[10].show + @facet[3][0].show + " "*3 + @tile[3].show+ " "*4 + @edge[11].show + @facet[3][1].show + @edge[18].show+ @edge[13].show+ @facet[3][2].show + " "*3 + @tile[4].show+ " "*4+ @edge[14].show + @facet[3][3].show + @edge[21].show + @edge[16].show + @facet[3][4].show + " "*3 + @tile[5].show + " "*4 + @edge[17].show + @facet[3][5].show
@@ -97,8 +114,10 @@ class SettlersOfCatan::GameBoard
         puts " "*25 + @edge[71].show + " "*11 + @edge[73].show
         puts " "*26 + @edge[71].show + " "*9 + @edge[73].show
         puts " "*27 + @edge[71].show + @facet[10][2].show + @edge[75].show + @edge[73].show + @facet[10][3].show
+
+        display_legend
     end
-    
+
     def display_current_roads
         puts "\e[H\e[2J"
         puts " "*28 + @facet[0][2].show("symbol") + @edge[0].show("number") + @facet[0][3].show("symbol")
@@ -132,5 +151,9 @@ class SettlersOfCatan::GameBoard
         puts " "*25 + @edge[71].show + " "*11 + @edge[73].show
         puts " "*26 + @edge[71].show("number") + " "*8 + @edge[73].show("number")
         puts " "*27 + @edge[71].show + @facet[10][2].show("symbol") + @edge[75].show("number") + @edge[73].show + @facet[10][3].show("symbol")
+
+        display_legend
     end
+
+
 end
