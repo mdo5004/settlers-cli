@@ -65,11 +65,16 @@ class SettlersOfCatan::GameBoard
     end
 
     def all_facets
-        return @facet.flatten
+        return @facet.flatten.compact
     end
     def available_facets
         facets = all_facets.select do |facet|
             facet.isFree?
+        end
+    end
+    def select_facet_by_number(n)
+        all_facets.select do |facet|
+            facet.number == n
         end
     end
     def display_legend

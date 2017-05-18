@@ -24,14 +24,16 @@ class SettlersOfCatan::Player
     def place_settlement(facet_number)
         puts "Placed settlement on facet "
         settlement = @settlements.find {|s| !s.is_on_the_board}
-        facet = SettlersOfCatan::Facet.all[facet_number-1]
+        facet = @board.select_facet_by_number(facet_number)
+        s = nil
         if settlement && facet.isFree?
-            did_place_settlement = facet.setOccupier(settlement)
+            if facet.setOccupier(settlement)
+                s = settlement
+            end
         else
             puts "Can't place settlement"
-            did_place_settlement = false
         end
-        return did_place_settlement
+        return s
     end
     def place_road(edge_number)
         road = @roads.find {|s| !s.is_on_the_board}
