@@ -39,7 +39,6 @@ class SettlersOfCatan::Facet < SettlersOfCatan::Space
         end 
         if leading_edge.occupier
             color = leading_edge.occupier.color
-            binding.pry
         end
         return color
     end
